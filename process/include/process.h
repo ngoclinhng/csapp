@@ -6,7 +6,11 @@
 #include <string.h>
 #include <errno.h>
 
-/** Unix-style error
+/* External veriables */
+extern char **environ;      /* Defined by libc */
+
+/** 
+ * Unix-style error
  * @msg the error message
  */
 void unix_error(char *msg)
@@ -15,7 +19,17 @@ void unix_error(char *msg)
     exit(-1);
 }
 
-/** Wrapper for fork
+/**
+ * Application error
+ */
+void app_error(char *msg)
+{
+    fprintf(stderr, "%s\n", msg);
+    exit(0);
+}
+
+/** 
+ * Wrapper for fork
  * Returns a PID on success, otherwise terminates the calling process
  * and reports error
  */
@@ -27,5 +41,17 @@ pid_t Fork(void)
     return pid;
 }
 
+/**
+ * Wrapper for fgets function.
+ */
+char *Fgets(char *str, int size, FILE *stream)
+{
+    char *retstr;
+
+    if (((retstr = fgets(str, size, stream)) == NULL) && ferror(stream))
+        app_error("Fgets error");
+
+    return retstr;
+}
 
 
