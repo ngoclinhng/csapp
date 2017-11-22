@@ -135,7 +135,7 @@ typedef void handler_t(int);
  */
 handler_t *Signal(int signum, handler_t *handler)
 {
-    struct sigaction, old_action;
+    struct sigaction action, old_action;
 
     action.sa_handler = handler;
     sigemptyset(&action.sa_mask); /* Block sigs of type being handled */
@@ -209,8 +209,8 @@ void Sigdelset(sigset_t *set, int signum)
 int Sigismember(const sigset_t *set, int signum)
 {
     int ret;
-
-    if ((ret = sigismember(set, signum)) < 0)
+    ret = sigismember(set, signum);
+    if (ret < 0)
         unix_error("Sigismember error");
     return ret;
 }
