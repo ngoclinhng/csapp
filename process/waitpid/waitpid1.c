@@ -1,4 +1,4 @@
-#include "process.h"
+#include "common.h"
 #define N (2)
 
 /** uses waitpid to wait, in no particular order, for all of its children to

@@ -1,4 +1,4 @@
-#include "process.h"
+#include "common.h"
 
 /**
  * Parent creates N processes and waits for all of its children to terminate
