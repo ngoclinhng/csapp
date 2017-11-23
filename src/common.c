@@ -285,3 +285,15 @@ char *Fgets(char *str, int size, FILE *stream)
         app_error("Fgets error");
     return retstr;
 }
+
+/*****************************************************************************************
+ * Wrappers for Unix I/O routines.
+ * ***************************************************************************************/
+ssize_t Read(int fd, void *buf, size_t nbyte)
+{
+    ssize_t ret;
+    if ((ret = read(fd, buf, nbyte)) < 0)
+        unix_error("Read error");
+    return ret;
+}
+

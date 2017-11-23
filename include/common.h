@@ -132,4 +132,9 @@ void Sio_error(char s[]);
  * Wrappers for standard I/O functions.
  ******************************************************************************/
 char *Fgets(char *str, int size, FILE *stream);
+
+/******************************************************************************
+ * Wrappers for Unix I/O routines.
+ ******************************************************************************/
+ssize_t Read(int fd, void *buf, size_t nbyte);
 #endif
