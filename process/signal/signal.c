@@ -1,6 +1,8 @@
-#include "common.h"
+/* WARNING: This code is buggy! */
 
+#include "common.h"
 #define MAXBUF (8192)      /* Max I/O buffer size */
+
 /* SIGCHILD signal handler */
 void handler(int signum)
 {

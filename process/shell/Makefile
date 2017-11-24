@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-std=c99 -Wall -pedantic -O3
+CFLAGS=-std=c99 -Wall -pedantic -O3 -g3
 INCLUDE=-I../../include
 
 SRC_DIR=../../src
