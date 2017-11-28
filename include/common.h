@@ -137,4 +137,12 @@ char *Fgets(char *str, int size, FILE *stream);
  * Wrappers for Unix I/O routines.
  ******************************************************************************/
 ssize_t Read(int fd, void *buf, size_t nbyte);
+
+/******************************************************************************
+ * Wrappers for dynamic storage allocation functions.
+ ******************************************************************************/
+void *Malloc(size_t size);
+void *Realloc(void *ptr, size_t size);
+void *Calloc(size_t nmemb, size_t size);
+void Free(void *ptr);
 #endif
